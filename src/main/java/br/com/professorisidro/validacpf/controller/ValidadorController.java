@@ -11,6 +11,11 @@ import br.com.professorisidro.validacpf.service.Validador;
 @CrossOrigin("*")
 public class ValidadorController {
 	
+	@GetMapping("/")
+	public String index() {
+		 return "{\"mensagem\": \"Bem-Vindo a minha API\"}";
+	}
+	
 	@GetMapping("/validacpf")
 	public String validaCPF(@RequestParam String cpf) {
 		if (Validador.isCPF(cpf)) {
@@ -18,5 +23,4 @@ public class ValidadorController {
 		}
 		 return "{\"status\": \"invalido\"}";
 	}
-
 }
